@@ -2,8 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,23 +14,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository
         uses: actions/checkout@v5
+
       - name: Install, build, and upload your site
         uses: withastro/action@v4
-        with:
-          path: .
-          node-version: 24
-          package-manager: npm@latest
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    
-    permissions:
-      pages: write
-      id-token: write
-      
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
