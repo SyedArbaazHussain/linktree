@@ -32,11 +32,11 @@ export default function DrawerBox({
   return (
     <Drawer>
       <DrawerTrigger>
-        <Button variant={"default"} className="w-full flex gap-2 justify-start">
+        <Button variant={"default"} className="w-full flex gap-2 justify-start cursor-pointer">
           <img
             src={social.icon}
             alt={social.name}
-            className="h-5 self-center"
+            className="h-5 lg:h-10 lg:py-2 self-center"
           />
           {triggerLabel}
         </Button>
