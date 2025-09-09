@@ -8,9 +8,12 @@
       type="image/png"
       href="/linktree/me-head-circle-thumb.png"
     />
+    <link rel="stylesheet" href="/src/styles/global.css" />
     <meta name="generator" content={Astro.generator} />
     <title>Arbaaz Link Tree</title>
     <script is:inline>
+      import { hydrateRoot } from "react-dom/client";
+      hydrateRoot(document.getElementById("root"));
       const getThemePreference = () => {
         if (
           typeof localStorage !== "undefined" &&
@@ -38,6 +41,8 @@
     </script>
   </head>
   <body>
-    <slot />
+    <div id="root" class="bg-black">
+      <slot />
+    </div>
   </body>
 </html>
